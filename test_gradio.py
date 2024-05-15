@@ -3,22 +3,15 @@
 
 # In[35]:
 
-import pathlib
+
 import gradio as gr
 import numpy as np
 import matplotlib.pyplot as plt
+
+HF_PATH = "/home/user/app/"
         
-DESCRIPTION = "# [Generate Comics with Assistant](https://github.com/RimiChen/Comic-Assistant)"
 
-
-if pathlib.Path('images/').exists():
-    print("image folder checked!")
-else:
-    print("image folder not exist!")
-
-
-
-# gr.set_static_paths(paths=["images/"])
+gr.set_static_paths(paths=["/images/"])
 
 
 # In[36]:
@@ -44,8 +37,6 @@ def diffusion(input_img):
 
 # In[40]:
 
-paths = sorted(pathlib.Path('images').rglob('*.png'))
-print([[path.as_posix()]for path in paths])
 
 panel_number = 4
 # image seqeucne
@@ -70,15 +61,11 @@ with gr.Blocks() as demo:
                 # image seqeucne
                 # for total_panel in range(panel_number):
                 #     panel_list[total_panel].value = "images/panel_"+str(total_panel+1)+".png"
-                paths = pathlib.Path('images').rglob('*.png')
-
-                for path in paths:
-                    # print("created path:", path)                
-                    image_path = path
-                    # print(image_path)
-                    panel_list.append(gr.Image(value=image_path, height = 100, width = 100, type ="pil"))  
-                    gr.Label(value = str(path))  
-
+                for total_panel in range(panel_number):
+                    image_path = "images/panel_"+str(total_panel+1)+".png"
+                    print(image_path)
+                    panel_list.append(gr.Image(value=image_path, height = 100, width = 100, type ="pil"))                    
+         
             with gr.Row():
                 with gr.Row():
                     gr.Label(value = "Nrrative Arc")
