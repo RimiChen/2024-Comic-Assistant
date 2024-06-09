@@ -10,10 +10,10 @@ class ScenePool:
 
     def initialScenePool(self):
         self.ScenePool["forest"] = True
-        self.ScenePool["beach"] = True
-        self.ScenePool["town"] =True
+        # self.ScenePool["beach"] = True
+        # self.ScenePool["town"] =True
         self.ScenePool["garden"] = True
-        self.ScenePool["room"] = True
+        # self.ScenePool["room"] = True
 
     def getRandomScene(self, randomNumber):
         resultList = []

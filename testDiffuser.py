@@ -114,6 +114,7 @@ if __name__ == "__main__":
     plt.imshow(init_img)
     plt.show()
 
+    # prompt = "new scenary with similar painting style"
     # result_1 = diffuser.diffusion_function(init_img)
     # print("show result 1")
     # plt.imshow(result_1)
@@ -132,6 +133,7 @@ if __name__ == "__main__":
     else:
         print("File not exist!")
     chara_img = diffuser.local_str2PIL_Image(local_img_path, img_width, img_height)
+    prompt = "only need one character, trending on artstation, children will like it, no background"
     result_3 = diffuser.diffusion_with_LMSDiscreteScheduler(chara_img)
     print("show result 3")
     plt.imshow(result_3)
@@ -140,3 +142,23 @@ if __name__ == "__main__":
     output = diffuser.remove_back_img(result_3)  
     outpath = "images/Einstein_diffused_noback.png"
     output.save(outpath) 
+
+
+    back_img_path = "images/back.png"
+
+    if os.path.isfile(back_img_path):
+        print("File exist!")
+    else:
+        print("File not exist!")
+
+    back_img = diffuser.local_str2PIL_Image(back_img_path, img_width, img_height)
+    plt.imshow(back_img)
+    plt.show() 
+    prompt = "new scenary with similar painting style"
+    result_4 = diffuser.diffusion_function(back_img)
+    print("show result 4")
+    plt.imshow(result_4)
+    plt.show() 
+    # output2 = diffuser.remove_back_img(result_3)  
+    outpath2 = "images/new_back_diffused.png"
+    result_4.save(outpath2) 

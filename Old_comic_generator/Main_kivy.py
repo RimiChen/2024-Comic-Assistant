@@ -463,7 +463,7 @@ class MainApp(App):
         import_button_scene_R1 = Button(text ='Modify', size =(input_button_w, input_button_h), pos = (menu_count*input_w + width_shift +button_width_shift, input_top - vertical_shift * index - button_height_shift), background_normal ="", background_color =(37/255, 80/255, 77/255, 1), size_hint=(None, None))
         input_back_2.add_widget(import_button_scene_R1)
 
-        targetChara = imagePoolList["Scene"].getImageObjFromDictionary("beach").getPath()
+        targetChara = imagePoolList["Scene"].getImageObjFromDictionary("garden").getPath()
         # print("target_chara: ", targetChara)
         # print("==================================")
         img_x = menu_count*input_w + width_shift
@@ -490,7 +490,7 @@ class MainApp(App):
         input_back_2.add_widget(import_button_scene_R2)
 
 
-        targetChara = imagePoolList["Scene"].getImageObjFromDictionary("garden").getPath()
+        targetChara = imagePoolList["Scene"].getImageObjFromDictionary("forest").getPath()
         # print("target_chara: ", targetChara)
         # print("==================================")
         img_x = menu_count*input_w + width_shift
