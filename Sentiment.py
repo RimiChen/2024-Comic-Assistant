@@ -1,6 +1,7 @@
 ### import libraries
 from transformers import pipeline
 from transformers import Conversation
+# from transformers.pipelines.conversational import Conversation
 import json
 from sentence_transformers import SentenceTransformer
 import numpy as np
